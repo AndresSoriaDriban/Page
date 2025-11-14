@@ -313,45 +313,123 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
-        /* Clients Section */
-        .clients {
-            padding: 50px 0;
+        /* Success Stories Section */
+        .success-stories {
+            padding: 80px 0;
             background: white;
-            text-align: center;
         }
 
-        .clients h3 {
-            font-size: 0.9rem;
-            color: #999;
+        .success-stories .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 70px;
+        }
+
+        .case-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 2px solid #f0f0f0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .case-card:nth-child(1) { animation-delay: 0.1s; }
+        .case-card:nth-child(2) { animation-delay: 0.2s; }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .case-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .case-logo-icon {
+            font-size: 2.5rem;
+        }
+
+        .case-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .case-description {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 50px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+        }
+
+        .tech-stack h3 {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
+            font-weight: 600;
         }
 
-        .clients-logos {
+        .tech-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
-        .client-logo {
-            font-size: 1.3rem;
-            font-weight: bold;
+        .tech-logo {
+            padding: 20px 30px;
+            background: white;
+            border-radius: 15px;
+            font-weight: 700;
             color: #667eea;
-            opacity: 0;
-            animation: fadeInScale 0.8s ease forwards;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInScale 0.6s ease forwards;
+            cursor: default;
         }
 
-        .client-logo:nth-child(1) { animation-delay: 0.1s; }
-        .client-logo:nth-child(2) { animation-delay: 0.2s; }
-        .client-logo:nth-child(3) { animation-delay: 0.3s; }
+        .tech-logo:nth-child(1) { animation-delay: 0.1s; }
+        .tech-logo:nth-child(2) { animation-delay: 0.15s; }
+        .tech-logo:nth-child(3) { animation-delay: 0.2s; }
+        .tech-logo:nth-child(4) { animation-delay: 0.25s; }
+        .tech-logo:nth-child(5) { animation-delay: 0.3s; }
+        .tech-logo:nth-child(6) { animation-delay: 0.35s; }
 
-        .client-logo:hover,
-        .client-logo:active {
-            transform: scale(1.1);
+        .tech-logo:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             color: #764ba2;
         }
 
@@ -1017,6 +1095,51 @@
                 font-size: 2rem;
             }
 
+            /* Success Stories Mobile */
+            .success-stories {
+                padding: 60px 0;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+
+            .case-card {
+                padding: 30px;
+            }
+
+            .case-logo {
+                font-size: 1.5rem;
+            }
+
+            .case-logo-icon {
+                font-size: 2rem;
+            }
+
+            .case-title {
+                font-size: 1.2rem;
+            }
+
+            .tech-stack {
+                padding: 40px 20px;
+            }
+
+            .tech-stack h3 {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .tech-logos {
+                gap: 20px;
+            }
+
+            .tech-logo {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+
             .how-it-works {
                 padding: 60px 0;
             }
@@ -1151,12 +1274,48 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="clients">
+    <!-- Success Stories Section -->
+    <section class="success-stories">
         <div class="container">
-            <h3>Confían en Nosotros</h3>
-            <div class="clients-logos">
-                <div class="client-logo">Tesoros del Campo</div>
+            <h2 class="section-title">Casos de Éxito</h2>
+
+            <div class="cases-grid">
+                <!-- Case 1: Tesoros del Campo -->
+                <div class="case-card">
+                    <div class="case-logo">
+                        <span class="case-logo-icon">🌾</span>
+                        <span>Tesoros del Campo</span>
+                    </div>
+                    <h3 class="case-title">Sistema ERP Integral</h3>
+                    <p class="case-description">
+                        Desarrollo de sistema completo de gestión con integración de hardware (balanzas, impresoras térmicas) y automatización de inventario. Solución end-to-end para retail alimentario.
+                    </p>
+                </div>
+
+                <!-- Case 2: Friolatina (Kingspan) -->
+                <div class="case-card">
+                    <div class="case-logo">
+                        <span class="case-logo-icon">🏭</span>
+                        <span>Friolatina (Kingspan)</span>
+                    </div>
+                    <h3 class="case-title">Optimización de Procesos Productivos</h3>
+                    <p class="case-description">
+                        Documentación y estandarización de 13 procesos operativos, automatización de flujos administrativos con Power Automate/SharePoint, y desarrollo de sistema de asistencia inteligente basado en IA.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="tech-stack">
+                <h3>Tecnologías que Utilizamos</h3>
+                <div class="tech-logos">
+                    <div class="tech-logo">n8n</div>
+                    <div class="tech-logo">OpenAI</div>
+                    <div class="tech-logo">Claude AI</div>
+                    <div class="tech-logo">Power Automate</div>
+                    <div class="tech-logo">SharePoint</div>
+                    <div class="tech-logo">Python</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1447,7 +1606,7 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-document.querySelectorAll('.section-title, .service-card, .contact-form, .demo-container, .timeline, .timeline-item').forEach(function(el) {
+document.querySelectorAll('.section-title, .service-card, .contact-form, .demo-container, .timeline, .timeline-item, .case-card').forEach(function(el) {
     observer.observe(el);
 });
 
